@@ -1,0 +1,125 @@
+.portfolio {
+  background-color: #f2f2f2;
+  position: relative;
+}
+
+.portfolio__bg-triangle-white {
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  top: 0;
+}
+
+.portfolio__list {
+  position: relative;
+  list-style: none;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.portfolio__item {
+  width: 320px;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.portfolio__item h3 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.portfolio__item p {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.portfolio__link {
+  position: relative;
+  display: block;
+  transition: 0.5s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.3;
+    z-index: 1;
+    transition: 0.5s;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.7);
+    opacity: 0.7;
+  }
+}
+
+.portfolio__link:hover::after,
+.portfolio__link:focus::after {
+  opacity: 0;
+}
+
+
+@media (min-width: $tablet-width) {
+  .portfolio__list {
+    padding-top: 75px;
+  }
+
+  .portfolio__item {
+    width: 620px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .portfolio__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 100px;
+  }
+
+  .portfolio__item {
+    width: 300px;
+    margin-right: 20px;
+  }
+
+  .portfolio__item:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+/* dark-theme start */
+
+.dark-theme .portfolio {
+  background-color: #656565;
+}
+
+.dark-theme .portfolio__bg-triangle-white path {
+  fill: #909196;
+}
+
+.dark-theme .portfolio__item {
+  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* dark-theme end */
