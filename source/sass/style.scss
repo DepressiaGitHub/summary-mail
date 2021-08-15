@@ -1,10 +1,33 @@
 @import "scaffolding.scss";
 @import "variables.scss";
 @import "fonts.scss";
-@import "blocks/page.scss";
 @import "blocks/container.scss";
 @import "blocks/page-header.scss";
 @import "blocks/page-main.scss";
-@import "blocks/portfolio.scss";
 @import "blocks/page-footer.scss";
-@import "blocks/social.scss";
+
+
+.hljs {
+  display: block;
+  color: black;
+}
+
+.hljs-keyword {
+  color: blue;
+}
+
+.hljs-string {
+  color: rgb(3,106,7);
+}
+
+.hljs-meta {
+  color: rgb(104,104,91);
+}
+.hljs-attribute {
+  color: rgb(109,121,222);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: rgb(188,20,175);
+}

@@ -7,85 +7,159 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="preload" href="fonts/opensanslight.woff2" as="font" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Портфолио Александра Масленникова</title>
+    <title>Требования и советы по вёрстке email-рассылок</title>
   </head>
   <body class="page">
     <div style="display: none">
       <include src="build/img/sprite.svg"></include>
     </div>
+
     <header class="page-header">
-      <div class="page-header__container container">
-        <p class="page-header__title">Александр Масленников</p>
-        <p class="page-header__slogan">Вёрстка сайтов на HTML и CSS.</p>
-        <div class="page-header__list">
-          <button class="page-header__item page-header__theme-button" type="button">Изменить тему</button>
-          <a class="page-header__item" href="https://ramenskoye.hh.ru/applicant/resumes/view?resume=3761098cff08330e7d0039ed1f7a6762426b56" target="blank">Посмотреть резюме</a>
-        </div>
-      </div>
     </header>
+
     <main class="page-main">
-      <h1 class="page-main__title">Портфолио</h1>
-      <section class="portfolio">
-        <svg class="portfolio__bg-triangle-white" version="1.0" xmlns="http://www.w3.org/2000/svg" width="1200" height="94.074" viewBox="0 0 1200 94.074">
-          <path fill="#fff" d="M1200 0H0v94.074z"/>
-        </svg>
-        <h2 class="visually-hidden">Список портфолио</h2>
-        <ul class="portfolio__list container">
-          <li class="portfolio__item">
-            <a class="portfolio__link" href="technomart/index.html" target="blank">
-              <img src="img/preview-1.jpg" alt="Превью проекта «Техномарт»">
-            </a>
-            <h3>Проект «Техномарт»</h3>
-            <p>Интернет-магазин инструмента и стройматериалов.</p>
-            <p>Личный учебный проект Html-academy на интенсиве "HTML и CSS. Профессиональная вёрстка сайтов".</p>
-            <p>Фиксированная десктоп-версия, реализованы всплывающие модальные окна + карта.</p>
-          </li>
-          <li class="portfolio__item">
-            <a class="portfolio__link" href="pink/index.html" target="blank">
-              <img src="img/preview-2.jpg" alt="Превью проекта «Pink»">
-            </a>
-            <h3>Проект «Pink»</h3>
-            <p>Сайт фотоприложения для раскрашивания серых будней.</p>
-            <p>Личный учебный проект Html-academy на интенсиве "HTML и CSS. Адаптивная вёрстка и автоматизация".</p>
-            <p>Адаптивная-вёрстка, реализованы всплывающие модальные окна.</p>
-          </li>
-          <li class="portfolio__item">
-            <a class="portfolio__link" href="keksobooking/index.html" target="blank">
-              <img src="img/preview-3.jpg" alt="Превью проекта «Кексобукинг»">
-            </a>
-            <h3>Проект «Кексобукинг»</h3>
-            <p>Кексобукинг — Сервис для размещения объявлений о сдаче недвижимости.</p>
-            <p>Личный учебный проект Html-academy на интенсиве "HTML и CSS. JavaScript. Профессиональная разработка веб-интерфейсов".</p>
-            <p>Реализация работы фильтров, а так же обработка данных с сервера и отправка своей формы, реализованы всплывающие модальные окна.</p>
-          </li>
-        </ul>
+      <section class="container">
+        <section>
+          <h2>1. Что такое email-рассылка</h2>
+          <ul>
+            <li>отправитель;</li>
+            <li>тема письма;</li>
+            <li>прехедер;</li>
+            <li>само письмо (шапка, тело, подвал).</li>
+          </ul>
+          <br>
+          <h3>Отправитель</h3>
+          <img src="img/1.jpg" alt="">
+          <br>
+          <h3>Тема письма</h3>
+          <img src="img/2.jpg" alt="">
+          <br>
+          <h3>Раскрытие темы (прехедер)</h3>
+          <img src="img/3.jpg" alt="">
+          <pre><code class="hljs">&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-string">"margin: 0; color: #FFFFFF; display: none !important; font-family: arial; font-size: 1px; line-height: 0;"</span>&gt;<br>  Прехедер<br>&lt;&#47;<span class="hljs-keyword">div</span>&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>2. Разметка e-mail-письма:</h2>
+          <h3>DOCTYPE и HTML</h3>
+          <pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span><br><span class="hljs-meta-keyword">  PUBLIC</span> <span class="hljs-meta-string">"-//W3C//DTD XHTML 1.0 Transitional//EN"</span> <span class="hljs-meta-string">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</span>&gt;</span></code></pre>
+          <pre><code class="hljs routeros">&lt;html <span class="hljs-attribute">xmlns</span>=<span class="hljs-string">"http://www.w3.org/1999/xhtml"</span>&gt;</code></pre>
+          <br>
+          <h3>Meta</h3>
+          <pre><code class="hljs routeros">&lt;meta <span class="hljs-attribute">http-equiv</span>=<span class="hljs-string">"Content-Type"</span> <span class="hljs-attribute">content</span>=<span class="hljs-string">"text/html;charset=utf-8"</span> /&gt;<br>&lt;meta <span class="hljs-attribute">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attribute">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span> /&gt;<br>&lt;meta <span class="hljs-attribute">content</span>=<span class="hljs-string">"telephone=no"</span> <span class="hljs-attribute">name</span>=<span class="hljs-string">"format-detection"</span> /&gt;<br>&lt;meta <span class="hljs-attribute">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attribute">content</span>=<span class="hljs-string">"IE=edge"</span> /&gt;<br>&lt;meta <span class="hljs-attribute">name</span>=<span class="hljs-string">"x-apple-disable-message-reformatting"</span>&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>3. Разметка email-письма:</h2>
+          <h3>Теги и атрибуты</h3>
+          <ol>
+            <li>
+              Тег ссылки <code>&lt;a&gt;</code>:
+              <ul>
+                <li><code>title</code>&nbsp;— осмысленный, объясняет, что это за&nbsp;ссылка;</li>
+                <li><code>target="_blank"</code>&nbsp;— для открытия всех ссылок в&nbsp;новом окне;</li>
+                <li><code>href</code>&nbsp;— путь должен быть абсолютным, и&nbsp;лучше задействовать <code>https://</code>, если используется кириллический домен&nbsp;— он&nbsp;должен быть закодирован с&nbsp;помощью percent encoding.</li>
+              </ul>
+            </li>
+            <li>
+              Тег <code>&lt;img /&gt;</code>
+              <ul>
+                <li>
+                  <code>href</code> путь до&nbsp;изображений должен быть абсолютным:
+                  <pre><code class="hljs routeros">&lt;img <span class="hljs-attribute">src</span>=<span class="hljs-string">"https://site.ru/image.jpg"</span> <span class="hljs-attribute">width</span>=<span class="hljs-string">"20"</span> <span class="hljs-attribute">height</span>=<span class="hljs-string">"20"</span>&#47;&gt;</code></pre>
+                </li>
+                <li><code>height</code> и&nbsp;<code>width</code>&nbsp;— <code>width</code> не&nbsp;должен превышать ширину макета;</li>
+                <li><code>alt</code> должен объяснять, что это за&nbsp;изображение;</li>
+                <li><code>border</code> обнуляется;</li>
+                <li><code>/</code> в&nbsp;конце тега обязателен.</li>
+              </ul>
+            </li>
+            <li>
+              Тег <code>&lt;table&gt;</code>
+              <ul>
+                <li><code>cellspacing="0"</code>;</li>
+                <li><code>cellpadding="0"</code>;</li>
+                <li><code>border="0"</code>.</li>
+              </ul>
+            </li>
+          </ol>
+          <br>
+          <h3>Теги и стили</h3>
+          <p>Основные стили должны быть написаны в&nbsp;атрибуте <code>style</code> конкретного тега. Часть стилей, например, media-выражения, можно вынести в&nbsp;тег <code>&lt;style&gt;</code>. Подключение внешних стилей не&nbsp;рекомендуется.</p>
+          <p>Многие свойства, привычные при вёрстке веб-страниц, не&nbsp;поддерживаются почтовыми клиентами, поэтому нужно проверять дизайн на&nbsp;наличие элементов, требующих использования таких свойств, а&nbsp;сами свойства проверять на&nbsp;уровень поддержки в&nbsp;нужных почтовых клиентах.</p>
+          <p>Например, многие клиенты игнорируют <code>margin</code>, <code>position</code>, <code>z-index</code> и&nbsp;др. Поэтому прежде, чем использовать то&nbsp;или иное свойство в&nbsp;письме, следует проверить его на&nbsp;сайте <a href="https://www.caniemail.com">caniemail</a>.</p>
+          <ol>
+            <li>
+              Тег <code>&lt;table&gt;</code>
+              <pre><code class="hljs">&lt;<span class="hljs-keyword">table</span> style=<span class="hljs-string">"mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-spacing: 0px; table-layout: fixed !important; width: 100%;"</span>&gt;&lt;&#47;<span class="hljs-keyword">table</span>&gt;</code></pre>
+            </li>
+            <li>
+              Тег <code>&lt;td&gt;</code>
+              <pre><code class="hljs">&lt;<span class="hljs-keyword">td</span> style=<span class="hljs-string">"Margin: 0; padding: 0;"</span>&gt;&lt;&#47;<span class="hljs-keyword">td</span>&gt;</code></pre>
+            </li>
+            <li>
+              Тег <code>&lt;p&gt;</code>
+              <pre><code class="hljs">&lt;<span class="hljs-keyword">p</span> style=<span class="hljs-string">"Margin: 0; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; mso-line-height-rule: exactly; font-size: 16px; font-family: 'trebuchet ms', tahoma, sans-serif; line-height: 19px; color:#000000;"</span>&gt;&lt;&#47;<span class="hljs-keyword">p</span>&gt;</code></pre>
+            </li>
+            <li>
+              Тег <code>&lt;a&gt;</code>
+              <pre><code class="hljs">&lt;<span class="hljs-keyword">a</span> style=<span class="hljs-string">style="Margin: 0; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; mso-line-height-rule: exactly; font-size: 16px; font-family: 'trebuchet ms', tahoma, sans-serif; line-height: 19px; color: #000000; text-decoration: none;"</span>&gt;&lt;&#47;<span class="hljs-keyword">a</span>&gt;</code></pre>
+            </li>
+            <li>
+              Тег <code>&lt;img&gt;</code>
+              <pre><code class="hljs">&lt;<span class="hljs-keyword">img</span> style=<span class="hljs-string">style="display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic"</span>&#47;&gt;</code></pre>
+            </li>
+          </ol>
+          <br>
+          <h3>Условия для IE и OUTLOOK</h3>
+          <pre><code class="hljs xml"><span class="hljs-comment">&lt;!--[if mso]&gt;<br>  Этот контент видно только в версиях Outlook, базирующихся на Microsoft Word.<br>&lt;![endif]--&gt;</span></code></pre>
+          <pre><code class="hljs xml"><span class="hljs-comment">&lt;!--[if (IE)]&gt;<br>  Этот контент видно только в версиях Outlook, базирующихся на IE.<br>&lt;![endif]--&gt;</span></code></pre>
+        </section>
+
+        <section>
+          <h2>4. Текст и изображения</h2>
+          <h3>Web-безопасные шрифты</h3>
+          <p>Используйте в рассылке те шрифты, которые с большой долей вероятности установлены у пользователя в системе, тогда текст письма отобразится так, как задумали вы, а не так, как смог почтовый клиент.</p>
+          <p>Со&nbsp;списком шрифтов можно ознакомиться, например, <a href="https://ombm.ru/blog/kontent/bezopasnyie-shriftyi.html#:~:text=%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5%20%C2%AB%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D1%8B%D0%B5%C2%BB%20%D1%88%D1%80%D0%B8%D1%84%D1%82%D1%8B&text=%D0%92%20%D1%8D%D1%82%D0%BE%D1%82%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%D0%B2%D1%85%D0%BE%D0%B4%D1%8F%D1%82%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B5,Trebuchet%20MS%2C%20Verdana%2C%20Webdings">здесь</a>.</p>
+          <p>При задании шрифта для текста важно также указывать семейство шрифта&nbsp;— <code>serif</code> или <code>sans-serif</code>.</p>
+          <br>
+          <h3>Перенос vs неразрывный пробел</h3>
+          <ol>
+            <li>Известный всем тег <code>&lt;br/&gt;</code>, который ставит перенос на&nbsp;новую строку в&nbsp;том месте, где он&nbsp;установлен.</li>
+            <li>Спецсимвол <code>&amp;nbsp;</code>&nbsp;— неразрывный пробел. Устанавливается в&nbsp;местах, где не&nbsp;должно быть переноса на&nbsp;другую строку.<br><p>Для ускорения процесса расставления неразрывных пробелов в&nbsp;тексте можно использовать онлайн-сервис <a href="https://www.artlebedev.ru/typograf/">Типограф</a>.</p></li>
+            <li>Спецсимвол <code>&amp;#8209;</code>&nbsp;— неразрывный дефис. Устанавливается в&nbsp;местах, где не&nbsp;должно быть переноса на&nbsp;другую строку.</li>
+          </ol>
+          <br>
+          <h3>Формат изображений</h3>
+          <p>Прежде всего, нужно выбрать подходящий формат изображений, так как почтовые клиенты поддерживают не&nbsp;все из&nbsp;них. Наиболее распространённые&nbsp;— <code>PNG</code> и&nbsp;<code>JPG</code>.</p>
+          <p>Изображение в&nbsp;формате <code>PNG</code> стоит использовать тогда, когда оно немногоцветно, или нужен прозрачный фон: в&nbsp;логотипах, иконках соцсетей, декоративных элементах письма и&nbsp;т.&nbsp;п. <code>JPG</code> же&nbsp;подходит для вставки многоцветных изображений, таких, как фотографии.</p>
+          <br>
+          <h3>Адаптация под дисплей Retina</h3>
+          <p>Если экспортировать изображения напрямую в&nbsp;размере <code>1×</code>, вставить в&nbsp;разметку и&nbsp;открыть письмо на&nbsp;дисплее с&nbsp;двойной плотностью пикселей, все они будут смазанными.</p>
+          <p>Таким образом, для того, чтобы на&nbsp;всех устройствах (и&nbsp;мобильных, и&nbsp;десктопных) изображения выглядели хорошо, необходимо экспортировать десктопное изображение в&nbsp;<code>2x</code> размере.</p>
+
+        </section>
+
+        <section>
+          <h2>5. Само email-письмо:</h2>
+          <h3>Body</h3>
+          <pre><code class="hljs">&lt;<span class="hljs-keyword">body</span> style=<span class="hljs-string">"width: 100%; Margin: 0; padding: 0;"</span>&gt;&lt;&#47;<span class="hljs-keyword">body</span>&gt;</code></pre>
+          <br>
+          <h3>Обёртка для фона + условие для Outlook</h3>
+          <pre><code class="hljs">&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-string">"background-color:#F6F6F6;"</span>&gt;<br><span class="hljs-comment">  &lt;!--[if gte mso 9]&gt;<br>    &lt;v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t"&gt;<br>      &lt;v:fill type="tile" color="#f6f6f6">&lt;&#47;v:fill&gt;<br>    &lt;&#47;v:background&gt;<br>  &lt;![endif]--&gt;</span><br>  &lt;!--Основная таблица письма--&gt;<br>  &lt;<span class="hljs-keyword">table</span> class=<span class="hljs-string">"content-wrapper"</span> width=<span class="hljs-string">"100%"</span> cellpadding=<span class="hljs-string">"0"</span> cellspacing=<span class="hljs-string">"0"</span> border=<span class="hljs-string">"0"</span>&gt;&lt;&#47;<span class="hljs-keyword">table</span>&gt;<br>&lt;&#47;<span class="hljs-keyword">div</span>&gt;</code></pre>
+          <br>
+        </section>
+
+        <section>
+          <h2>6. Адаптив и резиновая вёрстка</h2>
+          <h3>Резиновая вёрстка для Outlook</h3>
+        </section>
       </section>
     </main>
+
     <footer class="page-footer">
-      <div class="page-footer__container container">
-        <div class="page-footer__copyright">
-          <p class="page-footer__title">Александр Масленников</p>
-          <p class="page-footer__slogan">HTML вёрстка и создание сайтов.</p>
-        </div>
-        <div class="page-footer__contacts">
-          <ul class="page-footer__social social">
-            <li>
-              <a class="social__item social__item--headhunter" href="https://ramenskoye.hh.ru/applicant/resumes/view?resume=3761098cff08330e7d0039ed1f7a6762426b56" target="blank"></a>
-            </li>
-            <li>
-              <a class="social__item social__item--mail" href="mailto:cray86@mail.ru"></a>
-            </li>
-            <li>
-              <a class="social__item social__item--github" href="https://github.com/DepressiaGitHub?tab=repositories" target="blank"></a>
-            </li>
-          </ul>
-        </div>
-        <div class="page-footer__call-me">
-          <h3>Звоните:</h3>
-          <a href="tel:+79253662653">+7 (925) 366 26 53</a>
-        </div>
-      </div>
     </footer>
+
     <script src="js/all.js"></script>
   </body>
 </html>

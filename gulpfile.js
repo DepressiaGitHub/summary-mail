@@ -14,11 +14,10 @@ var webp = require("gulp-webp");
 var svgstore = require("gulp-svgstore");
 var posthtml = require("gulp-posthtml");
 var include = require("posthtml-include");
-
 var del = require("del");
 var htmlmin = require("gulp-htmlmin");
 var uglify = require("gulp-uglify");
-var pipeline = require('readable-stream').pipeline;
+var pipeline = require("readable-stream").pipeline;
 var concat = require("gulp-concat");
 
 /*Создаёт css файл и минимализирует его*/
@@ -27,9 +26,7 @@ gulp.task("css", function () {
     .pipe(plumber())
     .pipe(sourcemap.init())
     .pipe(sass())
-    .pipe(postcss([
-      autoprefixer()
-    ]))
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest("build/css"))
     .pipe(csso())
     .pipe(rename("style.min.css"))
@@ -49,8 +46,8 @@ gulp.task("server", function () {
   });
 
   gulp.watch("source/sass/**/*.scss", gulp.series("css"));
+  gulp.watch("source/sass/**/*.js", gulp.series("alljs"));
   gulp.watch("source/img/{icon,logo}-*.svg", gulp.series("sprite", "html", "refresh"));
-  gulp.watch("source/js/*.js", gulp.series("alljs", "refresh"));
   gulp.watch("source/*.html", gulp.series("html", "refresh"));
 });
 
@@ -85,9 +82,7 @@ gulp.task("webp", function () {
 /*Создаём спрайт из иконок*/
 gulp.task("sprite", function () {
   return gulp.src("source/img/{icon,logo}-*.svg")
-    .pipe(svgstore({
-      inlineSvg: true
-    }))
+    .pipe(svgstore({inlineSvg: true}))
     .pipe(rename("sprite.svg"))
     .pipe(gulp.dest("build/img"));
 })
@@ -95,39 +90,24 @@ gulp.task("sprite", function () {
 /*Вставляем svg-sprite в include и минимализирует html*/
 gulp.task("html", function () {
   return gulp.src("source/*.html")
-    .pipe(posthtml([
-      include()
-    ]))
+    .pipe(posthtml([include()]))
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest("build"));
 })
 
-/*Собирает js файлы в один*/
+/*Минимализирует js файлы*/
 gulp.task("alljs", function() {
   return gulp.src("source/js/*.js")
     .pipe(concat("all.js"))
     .pipe(gulp.dest("build/js"));
 });
 
-// /*Минимализирует и собирает js файлы в один*/
-// gulp.task("alljs", function () {
-//   return pipeline(
-//     gulp.src("source/js/*.js"),
-//     uglify(),
-//     concat("all.js"),
-//     gulp.dest("build/js")
-//   );
-// });
-
 /*Копируем все файлы в build*/
 gulp.task("copy", function () {
   return gulp.src([
     "source/fonts/**/*.{woff,woff2}",
     "source/img/**",
-    "source/*.ico",
-    "source/technomart/**",
-    "source/pink/**",
-    "source/keksobooking/**"
+    "source/*.ico"
     ], {
       base: "source"
     })
